@@ -2,8 +2,6 @@
 
 文章・画像・手描きヒントから256×256の漢字画像を生成するモデルです。
 
-**学習済み重み: [Tonimono/Mojika on Hugging Face](https://huggingface.co/Tonimono/Mojika)**
-
 ## セットアップ
 
 Linux x86_64、Python 3.13、[uv](https://docs.astral.sh/uv/)、Node.js 22.6以上、CUDA 13.0用PyTorchが動くGPUで動作確認しています。
