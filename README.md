@@ -1,6 +1,7 @@
 # Mojika [文字禍]
 
 文章・画像・手描きヒントから256×256の漢字画像を生成するモデルです。
+https://zenn.dev/tonimono/articles/5a63d6eb32e6d3
 
 ## セットアップ
 
