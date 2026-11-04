@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.pytest_cache/
+/assets/
+/outputs/
+/release/
+*.local.toml
+*.pt
+*.safetensors
+.env
+.env.*
+web/node_modules/
+web/dist/
+*.tsbuildinfo

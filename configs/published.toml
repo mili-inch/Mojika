@@ -1,0 +1,48 @@
+warmup_steps = 2000
+
+[model]
+img_size = 256
+patch_size = 16
+in_chans = 1
+embed_dim = 768
+depth = 12
+num_heads = 12
+mlp_ratio = 4.0
+rope_theta = 10.0
+qk_norm = true
+
+[optimizer]
+name = "muon_adamw"
+adamw_lr = 0.0003
+beta1 = 0.9
+beta2 = 0.95
+eps = 1e-8
+weight_decay = 0.05
+muon_lr = 0.02
+muon_weight_decay = 0.05
+momentum = 0.97
+muon_beta2 = 0.9
+momentum_start = 0.85
+momentum_warmup_steps = 400
+momentum_end = 0.90
+decay_weight_decay_ratio = 1.0
+
+[training]
+batch_size = 128
+time_patch_sizes = [256]
+grad_clip_norm = 1.0
+seed = 42
+num_workers = 4
+compile = true
+save_every_steps = 1000
+keep_every_steps = 10000
+sample_every_steps = 10000
+sample_steps = 32
+log_every_steps = 20
+check_loss_every_steps = 20
+
+[training.time_sampling]
+location = -0.8
+scale = 0.8
+noise_density = 0.2
+image_density = 0.2

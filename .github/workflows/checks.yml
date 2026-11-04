@@ -1,0 +1,30 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          version: "0.9.17"
+          enable-cache: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "22"
+      - run: uv sync --locked
+      - run: uv run --locked ruff check mojika tests train.py
+      - run: uv run --locked python -m unittest discover -s tests -v
+      - working-directory: web
+        run: |
+          npm ci
+          npm run lint
+          npm test
+          npm run build
+      - run: git diff --exit-code -- web/src/api-types.ts

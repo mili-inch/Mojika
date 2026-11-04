@@ -1,0 +1,12 @@
+# Paths are relative to this configuration file.
+checkpoint = "../assets/weights/weights.pt"
+gpt_model = "../assets/models/sarashina2.2-0.5b"
+clip_model = "../assets/models/clip-japanese-base"
+client_dist = "../web/dist"
+host = "127.0.0.1"
+port = 8000
+steps = 32
+fps = 30.0
+seed = 42
+compile = false
+control_grace_seconds = 30.0
